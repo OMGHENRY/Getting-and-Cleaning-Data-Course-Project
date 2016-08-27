@@ -4,23 +4,31 @@ unzip("./dataset.zip")
 
 ### test data
 XTest<- read.table("./UCI HAR Dataset/test/X_test.txt")
+
 YTest<- read.table("./UCI HAR Dataset/test/Y_test.txt")
+
 SubjectTest <-read.table("./UCI HAR Dataset/test/subject_test.txt")
 
 ### train data:
 XTrain<- read.table("./UCI HAR Dataset/train/X_train.txt")
+
 YTrain<- read.table("./UCI HAR Dataset/train/Y_train.txt")
+
 SubjectTrain <-read.table("./UCI HAR Dataset/train/subject_train.txt")
 
 ### features and activity
+
 features<-read.table("UCI HAR Dataset/features.txt")
+
 activity<-read.table("UCI HAR Dataset/activity_labels.txt")
 
 
 ##1. Merges the training and the test sets to create one data set.
 
 X<-rbind(XTest, XTrain)
+
 Y<-rbind(YTest, YTrain)
+
 Subject<-rbind(SubjectTest, SubjectTrain)
 
 ##2. Extracts only the measurements on the mean and standard deviation for each measurement.
