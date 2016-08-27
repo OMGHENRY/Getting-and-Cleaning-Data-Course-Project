@@ -4,7 +4,7 @@
 
 unzip("./dataset.zip")
 
-#test data
+##test data
 XTest<- read.table("./UCI HAR Dataset/test/X_test.txt")
 YTest<- read.table("./UCI HAR Dataset/test/Y_test.txt")
 SubjectTest <-read.table("./UCI HAR Dataset/test/subject_test.txt")
@@ -20,14 +20,14 @@ activity<-read.table("UCI HAR Dataset/activity_labels.txt")
 
 
 #1. Merges the training and the test sets to create one data set.
-# 트레이닝과 테스트 세트를 하나의 데이터 세트로 합쳐라
+## 트레이닝과 테스트 세트를 하나의 데이터 세트로 합쳐라
 
 X<-rbind(XTest, XTrain)
 Y<-rbind(YTest, YTrain)
 Subject<-rbind(SubjectTest, SubjectTrain)
 
 #2. Extracts only the measurements on the mean and standard deviation for each measurement.
-# 각 측정에서 평균과 정규분포만 추출하라
+## 각 측정에서 평균과 정규분포만 추출하라
 
 index<-grep("mean\\(\\)|std\\(\\)", features$V2)
 
@@ -48,8 +48,7 @@ names(Y)<-"Activity"
 
 CleanedData<-cbind(Subject, Y, X)
 
-#5. From the data set in step 4, creates a second, independent tidy data set
-#   with the average of each variable for each activity and each subject.
+#5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 library(data.table)
 CleanedData<-data.table(CleanedData)
