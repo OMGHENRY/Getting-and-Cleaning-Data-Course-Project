@@ -1,7 +1,5 @@
 ## Getting-and-Cleaning-Data-Course-Project
 
-##You should create one R script called run_analysis.R that does the following.
-
 unzip("./dataset.zip")
 
 ##test data
@@ -20,14 +18,12 @@ activity<-read.table("UCI HAR Dataset/activity_labels.txt")
 
 
 #1. Merges the training and the test sets to create one data set.
-## 트레이닝과 테스트 세트를 하나의 데이터 세트로 합쳐라
 
 X<-rbind(XTest, XTrain)
 Y<-rbind(YTest, YTrain)
 Subject<-rbind(SubjectTest, SubjectTrain)
 
 #2. Extracts only the measurements on the mean and standard deviation for each measurement.
-## 각 측정에서 평균과 정규분포만 추출하라
 
 index<-grep("mean\\(\\)|std\\(\\)", features$V2)
 
