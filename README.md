@@ -47,7 +47,9 @@ Y[,1]<-activity[Y[,1],2] ## replacing numeric values with lookup value from acti
 names_of_feat<-features[index,2] ## getting names for variables
 
 names(X)<-names_of_feat
+
 names(Subject)<-"SubjectID"
+
 names(Y)<-"Activity"
 
 CleanedData<-cbind(Subject, Y, X)
@@ -55,7 +57,9 @@ CleanedData<-cbind(Subject, Y, X)
 ##5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 library(data.table)
+
 CleanedData<-data.table(CleanedData)
+
 TidyData <- CleanedData[, lapply(.SD, mean), by = 'SubjectID,Activity']
 
 write.table(TidyData, file = "Final.txt", row.names = FALSE)
